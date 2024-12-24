@@ -1,0 +1,262 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{titling}
+\setlength{\droptitle}{-8ex}
+\pretitle{\begin{flushleft}\Large\bfseries}
+\posttitle{\par\end{flushleft}}
+\preauthor{\begin{flushleft}\fangsong}
+\postauthor{\end{flushleft}}
+\predate{\begin{flushleft}}
+\postdate{\end{flushleft}}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{fourier, heuristica}
+\usepackage{array, booktabs}
+\usepackage{graphicx}
+\usepackage[x11names]{xcolor}
+\usepackage{colortbl}
+\usepackage{caption}
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+
+\newcommand{\foo}{\color{black}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+
+\title{《不定方程相关理论及其应用》开题报告}
+\author{应数2101·郑欢誉·2214414387}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\hrule
+
+\section{研究背景和意义}
+
+\noindent
+不定方程，又称丢番图方程（Diophantine equation），是数学中研究整数解的多项式方程。它们得名于古希腊数学家Diophantus，他在著作《算术（Arithmetica）》中提出了一系列关于求解整数方程的问题。不定方程理论作为数论的一个重要分支，涉及许多经典问题，其中包括费马大定理（Fermat's Last Theorem）。\\
+
+\noindent
+在《算术》的问题II.8中，Diophantus提问：“如何寻找有理数$k,u,v$使得$k^2=u^2+v^2$”？他随后给出了$k=4$时的构造。1637年，法国数学家Pierre de Fermat在他的《算术》一书上这一问题旁的空白处写下了数学史上最著名的注释：
+
+\begin{quote}
+Cubum autem in duos cubos, aut quadratoquadratum in duos quadratoquadratos \& generaliter nullam in infinitum ultra quadratum potestatem in duos eiusdem nominis fas est dividere cuius rei demonstrationem mirabilem sane detexi. Hanc marginis exiguitas non caperet. 
+
+然而，立方数不能分成两个立方数，4次方数不能分成2个4次方数，一般来说，任何高于平方的幂都不能分成两个同名幂。我确实发现了一种非常奇妙的证明，但因篇幅所限，无法写在书页的边缘。
+\end{quote}
+
+\noindent
+Fermat的原始手稿已经遗失，但在此之前他的儿子Samuel将所有他在书页边缘写下的笔记集结出版，后人才得以知晓这一故事。实际上Fermat利用无穷递降法完整证明了幂次为4的情况，并于1670年发表。但并没有关于其它情况的证明留存下来，因此这一简单的陈述成为了数学史上最著名的未解之谜之一，吸引了数百年来无数数学家的研究。\\
+
+\noindent
+在接下来的几个世纪里，费马大定理的部分特例逐步得到验证。18世纪，Leonhard Euler证明了当幂次为3时的情形；19世纪，Augustin-Louis Cauchy和Adrien-Marie Legendre等数学家解决了其他特定幂次的情况。这些工作极大地推动了数论的发展，但并未能实现费马大定理的一般性证明。\\
+
+\noindent
+19世纪中叶，德国数学家Ernst Kummer在研究费马大定理时引入了Ideal的概念，这一突破开创了代数数论的新领域。他的理论虽然没有直接解决费马大定理，但为后来的研究奠定了坚实的基础。\\
+
+\noindent
+进入20世纪，随着数学工具的发展，特别是代数几何和模形式理论的兴起，费马大定理的研究进入了一个新的阶段。20世纪50年代，日本数学家Yutaka Taniyama和Goro Shimura提出了著名的谷山-志村猜想。这一猜想表明，每一条椭圆曲线都可以通过模形式来表示，尽管其表述与费马大定理表面上无关，但研究者发现两者之间存在深刻的联系。\\
+
+\noindent
+20世纪80年代，美国数学家Ken Ribet证明了谷山-志村猜想的一个特例，与费马大定理的解决直接相关。这一进展为数学家Andrew Wiles的工作铺平了道路。1993年，Wiles宣布他通过证明谷山-志村猜想的特例，成功解决了费马大定理。这一发现震惊了数学界。然而，他的初步证明中存在技术漏洞。在同事Richard Taylor的协助下，Wiles于1994年修正了证明，最终给出了费马大定理的完整解决方案。\\
+
+\noindent
+Wiles的证明不仅为费马大定理画上了句号，也极大地推动了现代数论的发展。通过这一研究，数学家更加深入地理解了模形式与椭圆曲线的联系，这些工具在数论和代数几何中得到广泛应用。此外，费马大定理的研究激发了许多相关理论的发展，包括算术几何、伽罗瓦表示理论等领域的进展。\\
+
+\noindent
+除了理论数学的发展，不定方程理论及其相关方法在许多实际应用中也起到了重要作用。例如，在密码学中，利用数论中的素数性质和模运算构造的加密算法为现代信息安全提供了基础；在计算机科学中，数论算法被用于数据编码、误差检测和纠错码的设计。\\
+
+\noindent
+在整个数学历史中，费马大定理及不定方程理论的发展体现了数学研究的持续性与深度。费马大定理的证明历程跨越了350多年，涉及多个数学分支的突破和交叉应用。从欧拉的数论探索到怀尔斯的现代工具使用，数学家们在这一过程中展现了数学创新的魅力。\\
+
+\noindent
+本研究旨在梳理以费马大定理为代表的不定方程理论的历史发展脉络，分析其中的重要思想和方法，重点考察内容有：
+\begin{enumerate}
+\item Kummer对于正规素数情况的证明
+\item 费马大定理与ABC猜想的关联
+\item 渐进费马大定理（Asymptotic Fermat's Last Theorem）
+\item 形式化工作和费马大定理在现代数论分支中的其它应用
+\end{enumerate}
+这不仅有助于更全面地理解费马大定理的意义，也为相关理论在数学中的未来发展提供新思路。
+
+\section{文献调研}
+
+\noindent
+费马大定理陈述为，对于 $n > 2$，方程 $x^n + y^n = z^n$ 没有正整数解。通过分析，可以简化为：
+\begin{itemize}
+    \item $n=p$，其中 $p$ 是奇素数；
+    \item $x,y,z$ 互素，否则可以通过消去公因数简化问题。
+\end{itemize}
+
+\noindent
+将问题转化到分圆域 $\mathbb{Q}(\zeta_p)$ 中，$\zeta_p = e^{2\pi i / p}$ 是 $p$-次单位根。此时，方程可以分解为：
+$$
+x^p + y^p = z^p \implies (x+y)(x+\zeta_p y)\cdots(x+\zeta_p^{p-1}y) = z^p.
+$$
+上述分解发生在环 $\mathbb{Z}[\zeta_p]$ 中，于是问题的核心就变成了分析这个环中的分解性质。
+
+\paragraph{理想理论}
+Kummer的证明有诸多历史意义，其中重要的一条就是他对“理想数”（Ideal numbers）的构造，这一概念后经Dedekind发展为理想（Ideal）。
+在环 $\mathbb{Z}[\zeta_p]$ 中，唯一因子分解未必成立——这也导致了Lame在1847年给出的关于费马大定理的证明无效。Kummer 引入了“理想”这一概念，用于扩展分解的定义。
+理想理论的关键性质包括：
+\begin{itemize}
+    \item 理想能够修复唯一因子分解；
+    \item 对于某些素数 $p$，$\mathbb{Z}[\zeta_p]$ 的类数（Class number）决定了理想的行为。如果$p$是正规素数（$p$ 不整除 $\mathbb{Q}(\zeta_p)$ 的类数），则所有理想均为主理想。
+\end{itemize}
+
+\paragraph{证明框架}
+Kummer将问题分成两种情况：
+\begin{enumerate}
+\item $x,y,z$均与$p$互素
+\item $x,y,z$中恰有一个被$p$整除
+\end{enumerate}
+\subparagraph{第一种情况}
+对于第一种情况，假设存在正整数解 $(x,y,z)$，则在环 $\mathbb{Z}[\zeta_p]$ 中：
+$$
+\prod_{i=0}^{p-1}(x+\zeta_p^iy) = z^p.
+$$
+\begin{quote}
+将这对应于理想的分解：
+\end{quote}
+$$
+\prod_{i=0}^{p-1}\langle x+\zeta_p^iy\rangle = \langle z\rangle^p.
+$$
+\begin{quote}
+经过分析可以得到，$\langle x+\zeta_p^iy\rangle$间两两互素。再由理想的唯一分解性质可以得到，每个$\langle x+\zeta_p^iy\rangle$都可以表示为某个主理想的$p$-次幂，结合单位根的模 $p$ 同余性质，Kummer 证明了这将导致矛盾。
+\end{quote}
+
+\subparagraph{第二种情况} 对于第二种情况，我们首先通过对分圆域的研究将问题转化为：
+$$
+x^p + y^p = u \lambda^{pm} z_0^{p}
+$$
+\begin{quote}
+其中$u$是单位，$z_0$与$p$互素。接着进行理想分解：
+\end{quote}
+$$
+\prod_{i=0}^{p-1}\langle x+\zeta_p^iy\rangle = I^{pm} \langle z_0\rangle^p.
+$$
+\begin{quote}
+然后经过复杂的同余分析可以得出矛盾。
+\end{quote}
+
+\paragraph{现代发展}
+
+\begin{enumerate}
+\item 费马大定理与ABC猜想
+
+ABC猜想完整表述较复杂，在此不作赘述。概括地来讲，ABC猜想指出对满足$a+b=c$的互素的$a, b, c$， $abc$的素因子之积不会比$c$小太多。ABC猜想是数论领域的另一个极为重要的猜想，许多知名的结论可以由它快速得出，比如费马大定理\cite{ref11}。
+
+\item 渐进费马大定理（Asymptotic Fermat's Last Theorem）
+
+渐进费马大定理是费马大定理的直接推广。令$K$为数域，渐进费马大定理声称存在仅依赖于$K$的界使得对所有比这个界大的素数$p$，$x^p + y^p + z^p=0$无非平凡解。Freitas, Nuno等人在2020年通过类域论等工具建立了无穷多族数域上的渐进费马大定理\cite{ref10}。
+
+\item 形式化工作
+
+形式化验证是检验理论正确性的金标准。Riccardo等人使用形式化工具Lean于2024年完成了对费马大定理正规素数情况的形式化，本研究将介绍他们的工作\cite{ref12}。
+
+\end{enumerate}
+
+\paragraph{相关文献列举} 除前述论文外，本研究将依赖大量书籍，我会对部分书籍内容的引用作出说明。
+
+\begin{thebibliography}{99}
+
+\bibitem{ref1}Ash, Robert B. Abstract Algebra: the basic graduate year. 2000.
+
+尽管书名是抽象代数，但是这本书的内容异常丰富。从Regular Sequence到入门的代数数论和代数几何，再到入门的非交换代数和同调代数，这本书将为本研究奠定坚实和广泛的基础。
+
+\bibitem{ref2}Stewart, Ian, and David Tall. Algebraic number theory and Fermat's last theorem. AK Peters/CRC Press, 2001.
+
+这将是本研究主要参考的资料，Ian和Tall紧扣费马大定理，围绕Kummer对正规素数情况费马大定理的证明和Wiles利用圆锥曲线的证明，介绍了各种必要的代数和几何工具。
+
+\bibitem{ref3}Milne, James S. Algebraic number theory. JS Milne, 2020.
+
+Milne系统地讲述了经典的代数数论，介绍了对费马大定理“第一种情况”的证明（the \textit{first case} of Fermat's last theorem，这比正规素数的情况更弱），并延申到了赋值理论和Global Fields等主题。
+
+\bibitem{ref4}Milne, James S. Class field theory. 2020.
+
+类域论的主要目标是研究代数数域的阿贝尔扩张（如分圆域），以及这些扩张的类群结构。这一理论在Kummer之后才被完全发展出来（由Kronecker、Weber和Hilbert等人）。虽然Kummer对正规素数的证明没有直接涉及类域论，但类域论的系统化发展使得我们能够更深刻地理解Kummer理论以及费马大定理背后的结构。并且研究渐进费马定理的讨论需要依赖类域论，所以不妨将这本书加入本研究的文献集中。
+
+\bibitem{ref5}Matsumura, Hideyuki. Commutative algebra. Vol. 120. New York: WA Benjamin, 1970.
+
+代数和几何的结合在本研究中是重要的，比如\cite{ref3}的第7章对Completion的讨论和\cite{ref2}的Geometric Representation。Matsumura的这本书从更高的观点对交换代数以及诸多代数几何的内容，例如Zariski拓扑，进行了系统的论述。
+
+\bibitem{ref6}Marcus, D. A. Number Fields. 2018.
+
+这本书直接从费马大定理正规素数的情况引入，深入探讨了分圆域乃至类域论的课题。
+
+\bibitem{ref7}Vakil, R. The Rising Sea: Foundations Of Algebraic Geometry. 2024.
+
+《升腾的大海》是一本近一千页的鸿篇巨制，本研究将主要学习其中代数几何的基本内容，以辅助理解费马大定理的证明。
+
+\bibitem{ref8}Pasten, Hector.``The largest prime factor of $n^2+ 1$ and improvements on subexponential ABC." Inventiones mathematicae 236.1 (2024): 373-385.
+
+\bibitem{ref9}Riehl, Emily. ``Kummer's Special Case of Fermat's Last Theorem." (2005).
+
+\bibitem{ref10}Freitas, Nuno, Alain Kraus, and Samir Siksek. ``Class field theory, Diophantine analysis and the asymptotic Fermat's Last Theorem." Advances in Mathematics 363 (2020): 106964.
+
+\bibitem{ref11}Granville, Andrew; Tucker, Thomas (2002). ``It's As Easy As abc" (PDF). Notices of the AMS. 49 (10): 1224–1231.
+
+\bibitem{ref12}Brasca, Riccardo, et al. "A complete formalization of Fermat's Last Theorem for regular primes in Lean." arXiv preprint arXiv:2410.01466 (2024).
+
+\end{thebibliography}
+
+\section{研究方案}
+
+\subsection{研究目的}
+
+\noindent
+系统地建立对代数数论和类域论的把握理解，深化加强形式化能力，了解代数几何基本知识。
+
+\subsection{研究内容}
+
+\begin{enumerate}
+\item Kummer对于正规素数情况的证明
+\item 费马大定理与ABC猜想的关联
+\item 渐进费马大定理（Asymptotic Fermat's Last Theorem）
+\item 形式化工作和费马大定理在现代数论分支中的其它应用
+\end{enumerate}
+
+\subsection{研究方法}
+
+\noindent
+研究将首先从代数数论\cite{ref1}\cite{ref2}\cite{ref3}\cite{ref6}和交换代数\cite{ref5}开始，学习Ring of integers, Class number, Unit theorem等概念，理解掌握Kummer关于正规素数情况的证明。然后结合\cite{ref2}末尾部分拓展性地欣赏Wiles对费马大定理的证明。接下来通过\cite{ref8}\cite{ref11}以及\cite{ref2}末尾部分学习费马大定理与ABC猜想间的关联。之后利用类域论\cite{ref4}\cite{ref6}拓展性地了解渐进费马大定理\cite{ref10}。最后实际动手体会学习\cite{ref12}的形式化细节。对代数几何\cite{ref7}的学习将渗透在过程中。
+
+\section{进度安排}
+\begin{table}[!h]
+\centering
+\renewcommand\arraystretch{1.4}\arrayrulecolor{black}
+
+\captionsetup{singlelinecheck=false, labelfont=sc, labelsep=quad}
+
+\caption{进度安排}\vskip -1.5ex
+
+\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{12.3cm}}
+
+\toprule
+
+\addlinespace[1.5ex]
+
+2024年10-12月 & 相关文献调研，撰写开题报告\\
+
+2025年1-2月 & 完成对Kummer正规素数情况证明的学习，基本完成代数数论的学习\\
+
+2025年2-3月 & 学习费马大定理与ABC猜想间的关联，利用类域论了解渐进费马大定理\\
+
+2025年3-4月 & 中期答辩，完成形式化相关内容\\
+
+2025年4月 & 撰写论文初稿\\
+
+2025年5月 & 毕业论文答辩\\
+
+\end{tabular}
+
+\end{table}
+
+\end{document}
