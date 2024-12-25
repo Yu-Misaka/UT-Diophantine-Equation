@@ -27,6 +27,15 @@
 
 \newcommand{\foo}{\color{black}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+
+\usepackage{hyperref}
+\hypersetup{hypertex=true,
+            colorlinks=true,
+            linkcolor=blue,
+            anchorcolor=blue,
+            citecolor=blue}
+
 
 \title{《不定方程相关理论及其应用》开题报告}
 \author{应数2101·郑欢誉·2214414387}
@@ -86,6 +95,7 @@ Wiles的证明不仅为费马大定理画上了句号，也极大地推动了现
 \end{enumerate}
 这不仅有助于更全面地理解费马大定理的意义，也为相关理论在数学中的未来发展提供新思路。
 
+\newpage
 \section{文献调研}
 
 \noindent
@@ -105,14 +115,14 @@ $$
 \paragraph{理想理论}
 Kummer的证明有诸多历史意义，其中重要的一条就是他对“理想数”（Ideal numbers）的构造，这一概念后经Dedekind发展为理想（Ideal）。
 在环 $\mathbb{Z}[\zeta_p]$ 中，唯一因子分解未必成立——这也导致了Lame在1847年给出的关于费马大定理的证明无效。Kummer 引入了“理想”这一概念，用于扩展分解的定义。
-理想理论的关键性质包括：
+理想理论的关键性质包括\upcite{ref1}\upcite{ref2}\upcite{ref3}：
 \begin{itemize}
     \item 理想能够修复唯一因子分解；
     \item 对于某些素数 $p$，$\mathbb{Z}[\zeta_p]$ 的类数（Class number）决定了理想的行为。如果$p$是正规素数（$p$ 不整除 $\mathbb{Q}(\zeta_p)$ 的类数），则所有理想均为主理想。
 \end{itemize}
 
 \paragraph{证明框架}
-Kummer将问题分成两种情况：
+Kummer将问题分成两种情况\upcite{ref2}\upcite{ref3}\upcite{ref9}：
 \begin{enumerate}
 \item $x,y,z$均与$p$互素
 \item $x,y,z$中恰有一个被$p$整除
@@ -146,67 +156,47 @@ $$
 然后经过复杂的同余分析可以得出矛盾。
 \end{quote}
 
-\paragraph{现代发展}
+\paragraph{现代发展} 在此我将简要介绍本研究可能涵盖的现代议题。
 
-\begin{enumerate}
-\item 费马大定理与ABC猜想
+\subparagraph{费马大定理与ABC猜想} 
+\begin{quote}
+ABC猜想指出\upcite{ref11}，对任意给定的$\epsilon > 0$，总存在一个常数$k_\epsilon$，使得对任意满足$a+b=c$的互为质数的$a,b,c$，
+\end{quote}
+$$
+c \leq k_\epsilon \left(\prod_{p \ \text{prime}, \ p \mid abc} p\right)^{1+\epsilon}
+$$
 
-ABC猜想完整表述较复杂，在此不作赘述。概括地来讲，ABC猜想指出对满足$a+b=c$的互素的$a, b, c$， $abc$的素因子之积不会比$c$小太多。ABC猜想是数论领域的另一个极为重要的猜想，许多知名的结论可以由它快速得出，比如费马大定理\cite{ref11}。
+\begin{quote}
+概括地来讲，这意味着对满足$a+b=c$的互素的$a, b, c$， $abc$的素因子之积不会比$c$小太多。ABC猜想是数论领域的另一个极为重要的猜想，许多知名的结论可以由它快速得出，比如费马大定理\upcite{ref11}：
 
-\item 渐进费马大定理（Asymptotic Fermat's Last Theorem）
+在此我们利用一个强一些的ABC猜想，使得对$c$的估计达到$c \leq rad(a^n b^n c^n)^2$（$rad$即radical，其在交换代数和代数几何中处中心地位，Matsumura\upcite{ref5}和Vakil\upcite{ref7}对相关内容进行了深入阐述）
 
-渐进费马大定理是费马大定理的直接推广。令$K$为数域，渐进费马大定理声称存在仅依赖于$K$的界使得对所有比这个界大的素数$p$，$x^p + y^p + z^p=0$无非平凡解。Freitas, Nuno等人在2020年通过类域论等工具建立了无穷多族数域上的渐进费马大定理\cite{ref10}。
+那么对$a^n + b^n = c^n$，不失一般性地假定$a, b, c$互素，则有
+\end{quote}
+$$
+c^n < rad(a^n b^n c^n)^2 = rad((abc)^n)^2 = rad(abc)^2 \leq (abc)^2 < c^6
+$$
+\begin{quote}
+因此仅当$n < 6$时，$a^n + b^n = c^n$才有整数解。再佐以对3，4，5情况的费马大定理的验证，我们就可以完成对其的证明。
 
-\item 形式化工作
+近年来数学界在ABC猜想上做出了诸多工作，譬如Hector在2024年对$n^2 + 1$的最大素因子进行了卓有成效的估计，他将相同的思路用于对ABC猜想，也得到了次指数界的良好估计\upcite{ref8}。本研究将介绍相关工作。
+\end{quote}
 
-形式化验证是检验理论正确性的金标准。Riccardo等人使用形式化工具Lean于2024年完成了对费马大定理正规素数情况的形式化，本研究将介绍他们的工作\cite{ref12}。
+\subparagraph{渐进费马大定理（Asymptotic Fermat's Last Theorem）}
 
-\end{enumerate}
+\begin{quote}
+渐进费马大定理是费马大定理的直接推广。令$K$为数域，渐进费马大定理声称存在仅依赖于$K$的界使得对所有比这个界大的素数$p$，$x^p + y^p + z^p=0$无非平凡解。当然这一结论不是对所有数域都成立的，Freitas等人给出了其成立的充分条件\upcite{ref13}, 并在2020年结合类域论在无穷族数域上建立了渐进费马大定理\upcite{ref10}。本研究将介绍他们的工作，并介绍渐进费马大定理和ABC猜想的联系。
 
-\paragraph{相关文献列举} 除前述论文外，本研究将依赖大量书籍，我会对部分书籍内容的引用作出说明。
+值得注意的是，类域论的主要目标是研究代数数域的阿贝尔扩张（如分圆域）\upcite{ref6}，以及这些扩张的类群结构\upcite{ref4}。这一理论在Kummer之后才被完全发展出来（由Kronecker、Weber和Hilbert等人）。因此Kummer对正规素数的证明没有直接涉及类域论（尽管Kummer的工具技术已经蕴藏了类域论对单位根的研究思想），Wiles的证明也并没有直接涉及相关内容。但是类域论的框架对理解Kummer和Wiles的证明是很有帮助的，以故本研究将对其进行介绍。
+\end{quote}
 
-\begin{thebibliography}{99}
+\subparagraph{形式化工作}
 
-\bibitem{ref1}Ash, Robert B. Abstract Algebra: the basic graduate year. 2000.
+\begin{quote}
+形式化验证是检验理论正确性的金标准。Riccardo等人使用形式化工具Lean于2024年完成了对费马大定理正规素数情况的形式化。当前Lean的相关工具仍不完善，Riccardo从降低形式化难度出发，介绍了一种主要依赖 Group cohomology（Cohomology在Matsumura\upcite{ref5}和Vakil\upcite{ref7}的书中有讨论）的证明方法。本研究将介绍他们的工作\upcite{ref12}。
+\end{quote}
 
-尽管书名是抽象代数，但是这本书的内容异常丰富。从Regular Sequence到入门的代数数论和代数几何，再到入门的非交换代数和同调代数，这本书将为本研究奠定坚实和广泛的基础。
-
-\bibitem{ref2}Stewart, Ian, and David Tall. Algebraic number theory and Fermat's last theorem. AK Peters/CRC Press, 2001.
-
-这将是本研究主要参考的资料，Ian和Tall紧扣费马大定理，围绕Kummer对正规素数情况费马大定理的证明和Wiles利用圆锥曲线的证明，介绍了各种必要的代数和几何工具。
-
-\bibitem{ref3}Milne, James S. Algebraic number theory. JS Milne, 2020.
-
-Milne系统地讲述了经典的代数数论，介绍了对费马大定理“第一种情况”的证明（the \textit{first case} of Fermat's last theorem，这比正规素数的情况更弱），并延申到了赋值理论和Global Fields等主题。
-
-\bibitem{ref4}Milne, James S. Class field theory. 2020.
-
-类域论的主要目标是研究代数数域的阿贝尔扩张（如分圆域），以及这些扩张的类群结构。这一理论在Kummer之后才被完全发展出来（由Kronecker、Weber和Hilbert等人）。虽然Kummer对正规素数的证明没有直接涉及类域论，但类域论的系统化发展使得我们能够更深刻地理解Kummer理论以及费马大定理背后的结构。并且研究渐进费马定理的讨论需要依赖类域论，所以不妨将这本书加入本研究的文献集中。
-
-\bibitem{ref5}Matsumura, Hideyuki. Commutative algebra. Vol. 120. New York: WA Benjamin, 1970.
-
-代数和几何的结合在本研究中是重要的，比如\cite{ref3}的第7章对Completion的讨论和\cite{ref2}的Geometric Representation。Matsumura的这本书从更高的观点对交换代数以及诸多代数几何的内容，例如Zariski拓扑，进行了系统的论述。
-
-\bibitem{ref6}Marcus, D. A. Number Fields. 2018.
-
-这本书直接从费马大定理正规素数的情况引入，深入探讨了分圆域乃至类域论的课题。
-
-\bibitem{ref7}Vakil, R. The Rising Sea: Foundations Of Algebraic Geometry. 2024.
-
-《升腾的大海》是一本近一千页的鸿篇巨制，本研究将主要学习其中代数几何的基本内容，以辅助理解费马大定理的证明。
-
-\bibitem{ref8}Pasten, Hector.``The largest prime factor of $n^2+ 1$ and improvements on subexponential ABC." Inventiones mathematicae 236.1 (2024): 373-385.
-
-\bibitem{ref9}Riehl, Emily. ``Kummer's Special Case of Fermat's Last Theorem." (2005).
-
-\bibitem{ref10}Freitas, Nuno, Alain Kraus, and Samir Siksek. ``Class field theory, Diophantine analysis and the asymptotic Fermat's Last Theorem." Advances in Mathematics 363 (2020): 106964.
-
-\bibitem{ref11}Granville, Andrew; Tucker, Thomas (2002). ``It's As Easy As abc" (PDF). Notices of the AMS. 49 (10): 1224–1231.
-
-\bibitem{ref12}Brasca, Riccardo, et al. "A complete formalization of Fermat's Last Theorem for regular primes in Lean." arXiv preprint arXiv:2410.01466 (2024).
-
-\end{thebibliography}
-
+\newpage
 \section{研究方案}
 
 \subsection{研究目的}
@@ -226,7 +216,7 @@ Milne系统地讲述了经典的代数数论，介绍了对费马大定理“第
 \subsection{研究方法}
 
 \noindent
-研究将首先从代数数论\cite{ref1}\cite{ref2}\cite{ref3}\cite{ref6}和交换代数\cite{ref5}开始，学习Ring of integers, Class number, Unit theorem等概念，理解掌握Kummer关于正规素数情况的证明。然后结合\cite{ref2}末尾部分拓展性地欣赏Wiles对费马大定理的证明。接下来通过\cite{ref8}\cite{ref11}以及\cite{ref2}末尾部分学习费马大定理与ABC猜想间的关联。之后利用类域论\cite{ref4}\cite{ref6}拓展性地了解渐进费马大定理\cite{ref10}。最后实际动手体会学习\cite{ref12}的形式化细节。对代数几何\cite{ref7}的学习将渗透在过程中。
+研究将首先从代数数论\upcite{ref1}\upcite{ref2}\upcite{ref3}\upcite{ref6}和交换代数\upcite{ref5}开始，学习Ring of integers, Class number, Unit theorem等概念，理解掌握Kummer关于正规素数情况的证明。然后结合Ian和Tall的书\upcite{ref2}末尾部分拓展性地欣赏Wiles对费马大定理的证明。接下来通过Hector\upcite{ref8}和Andrew\upcite{ref11}的工作学习费马大定理与ABC猜想间的关联。之后利用类域论\upcite{ref4}\upcite{ref6}拓展性地了解渐进费马大定理\upcite{ref10}。最后实际动手体会学习Riccardo\upcite{ref12}的形式化细节。对代数几何\upcite{ref7}的学习将渗透在过程中。
 
 \section{进度安排}
 \begin{table}[!h]
@@ -258,5 +248,38 @@ Milne系统地讲述了经典的代数数论，介绍了对费马大定理“第
 \end{tabular}
 
 \end{table}
+
+\newpage
+\section{参考文献}
+
+\begin{thebibliography}{99}
+
+\bibitem{ref1}Ash, Robert B. Abstract Algebra: the basic graduate year. 2000.
+
+\bibitem{ref2}Stewart, Ian, and David Tall. Algebraic number theory and Fermat's last theorem. AK Peters/CRC Press, 2001.
+
+\bibitem{ref3}Milne, James S. Algebraic number theory. JS Milne, 2020.
+
+\bibitem{ref4}Milne, James S. Class field theory. 2020.
+
+\bibitem{ref5}Matsumura, Hideyuki. Commutative algebra. Vol. 120. New York: WA Benjamin, 1970.
+
+\bibitem{ref6}Marcus, D. A. Number Fields. 2018.
+
+\bibitem{ref7}Vakil, R. The Rising Sea: Foundations Of Algebraic Geometry. 2024.
+
+\bibitem{ref8}Pasten, Hector.``The largest prime factor of $n^2+ 1$ and improvements on subexponential ABC." Inventiones mathematicae 236.1 (2024): 373-385.
+
+\bibitem{ref9}Riehl, Emily. ``Kummer's Special Case of Fermat's Last Theorem." (2005).
+
+\bibitem{ref10}Freitas, Nuno, Alain Kraus, and Samir Siksek. ``Class field theory, Diophantine analysis and the asymptotic Fermat's Last Theorem." Advances in Mathematics 363 (2020): 106964.
+
+\bibitem{ref11}Granville, Andrew; Tucker, Thomas (2002). ``It's As Easy As abc" (PDF). Notices of the AMS. 49 (10): 1224–1231.
+
+\bibitem{ref12}Brasca, Riccardo, et al. "A complete formalization of Fermat's Last Theorem for regular primes in Lean." arXiv preprint arXiv:2410.01466 (2024).
+
+\bibitem{ref13}N. Freitas, S. Siksek, The asymptotic Fermat’s last theorem for five-sixths of real quadratic fields, Compos. Math. 151 (8) (2015) 1395–1415.
+
+\end{thebibliography}
 
 \end{document}
