@@ -28,3 +28,9 @@
 *.tdo
 *.pygstyle
 *.pygtex
+*.pyg
+*.snm
+*.vrb
+*.run.xml
+*.nav
+*.bcf
