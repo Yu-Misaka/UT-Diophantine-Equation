@@ -36,40 +36,40 @@
         $$
         \begin{quote}
             \begin{enumerate}
-                \item[1637] Pierre de Fermat：提出猜想
+                \item[1637] 费马：提出猜想
                 \vspace{5pt}
                 \item[1839] $n=3, 4, 5, 7$，无穷递降
                 \vspace{5pt}
-                \item[1847] \textbf{Ernst Kummer：唯一分解，理想}；
+                \item[1847] \textbf{库默尔：唯一分解，理想}；
                 %\vspace{2pt}
                 $n$ \underline{正规素数}（不整除$\mathbb{Q}(\zeta_n)$的类数）
                 \vspace{5pt}
-                \item[1994] Andrew Wiles，模形式和椭圆曲线
+                \item[1994] 怀尔斯：模形式和椭圆曲线
             \end{enumerate}
         \end{quote}
 	\end{frame}
 	
 	\begin{frame}{文献调研}{Literature Research}
     $$
-    x^n+y^n=z^n \text{ no integer solution } (x, y, z) \text{ for } 2 < n
+    x^n+y^n=z^n \ \text{对任意的} \ n > 2 \ \text{无整数解} \ (x, y, z)
     $$
     \begin{flalign}
     \notag
-    &\overset{analysis}{\implies} \text{ suffices to consider situation where } \underline{n=p \text{ odd prime}} \text{ \& } \underline{x,y,z \text{ coprime}}\\
+    \overset{\text{分析}}{\implies} &\text{只需要考虑} \ \underline{n=p \ \text{为奇素数}} \ \wedge \ \underline{x,y,z \ \text{互素}}\text{的情况}\\
     \notag
-    &\overset{in \ \mathbb{Q}(\zeta_p)}{\implies} \underline{(x+y)(x+\zeta_p y)\cdots (x+\zeta_p^{p-1} y)=z^p} \Leftarrow \text{decomposition in } \mathbb{Z}[\zeta_p]
+    \overset{\text{在} \mathbb{Q}(\zeta_p) \text{中}}{\implies} &\underline{(x+y)(x+\zeta_p y)\cdots (x+\zeta_p^{p-1} y)=z^p} \Leftarrow \text{在} \mathbb{Z}[\zeta_p] \text{中分解}
     \end{flalign}
 	\end{frame}
     
     \begin{frame}{文献调研}{Literature Research}
     \begin{center}
-    \textbf{"to what extend unique factorization fails or holds in number fields?"}
+    \textbf{“在数域中唯一分解在什么程度上失效或保持？”}
     \end{center}
-    \liwicki[1]{factorization with respect to what subring? $\implies$ \underline{ring of integers}}\\
-    \liwicki[2]{recovering unique factorization $\implies$ \underline{ideal}}\\
-    \liwicki[3]{a way to measure by how much unique factorization fails? $\implies$ \underline{class number}}\\
-    \liwicki[4]{simplifying how prime acts $\implies$ \underline{regular primes}}\\
-    \liwicki[5]{the structure of the group of units in the ring of integers? $\implies$ \underline{unit theorem}}
+    \liwicki[1]{所讨论的分解是在什么子环上进行的？$\implies$ \underline{整数环}}\\
+    \liwicki[2]{修复唯一分解 $\implies$ \underline{理想}}\\
+    \liwicki[3]{度量唯一分解失效的程度？$\implies$ \underline{类数}}\\
+    \liwicki[4]{简化素理想在分解中的行为 $\implies$ \underline{正规素数}}\\
+    \liwicki[5]{整数环里可逆元组成的群的结构？$\implies$ \underline{单位定理}}
     %\begin{enumerate}
     %\item \textit{factorization with respect to what subring?} $\implies$ \underline{ring of integers}
     %\item recovering unique factorization $\implies$ \underline{ideal}
@@ -80,9 +80,9 @@
     \end{frame}
     
     \begin{frame}{文献调研}{Literature Research}
-    Kummer: splits the problem (regular cases) into \\
+    库默尔：将问题（正规素数情况）拆分为 \\
     \begin{center}
-    $x,y,z$ \underline{all coprime with $p$} v.s. \underline{exactly one divisible by $p$}
+    $x,y,z$ \underline{均与 $p$ 互素} v.s. \underline{恰有一个被 $p$ 整除}
     \end{center}
     \begin{equation}
     \notag
@@ -93,30 +93,30 @@
     \end{frame}
     
     \begin{frame}{文献调研}{Literature Research}
-    \textbf{FLT \& ABC conjecture}:\\
+    \textbf{FLT \& ABC 猜想}：\\
     \vspace{10pt}
-    (ABC conjecture): $\forall \epsilon > 0$, $\exists$ constant $k_\epsilon$ s.t. for any coprime integers $a, b, c$ satisfying $a+b=c$,
+    （ABC猜想）：$\forall \epsilon > 0$, $\exists k_\epsilon$ s.t. 对任意满足 $a+b=c$ 的互素的 $a, b, c$，
     $$
-    c \leq k_\epsilon \left(\prod_{p \ \text{prime}, \ p \mid abc} p\right)^{1+\epsilon}
+    c \leq k_\epsilon \left(\prod_{p \ \text{素数}, \ p \mid abc} p\right)^{1+\epsilon}
     $$
     \begin{itemize}
-    \item ABC $\implies$ FLT (Goldfeld, 1999)
-    \item improvements on subexponential ABC (Hector, 2024)
+    \item ABC $\implies$ FLT（Goldfeld, 1999）
+    \item ABC猜想次指数界的改良（Hector, 2024）
     \end{itemize}
     \end{frame}
     
     \begin{frame}{文献调研}{Literature Research}
-    \textbf{Asymptotic Fermat's Last Theorem}:\\
+    \textbf{渐进费马大定理（Asymptotic Fermat's Last Theorem）}：\\
     \vspace{10pt}
-    (Asymptotic FLT): $K$ a number field, there is a bound $B_K$, depending only on the field $K$, such that for all prime exponents $p > B_K$, there is no nontrivial solution to
+    （渐进FLT）： $K$ 为一个数域，存在一个仅依赖于 $K$ 的界 $B_K$，使得对任意的素数 $p > B_K$，下面的丢番图方程无非平凡解
     $$x^p + y^p + z^p = 0$$
     \begin{itemize}
-    \item established the asymptotic Fermat's Last Theorem for many infinite families of number fields via \underline{class field theory} (Freitas, 2020)
+    \item 通过 \underline{类域论}在无穷族数域上建立了渐进费马大定理（Freitas, 2020）
     \end{itemize}
     \end{frame}
     
     \begin{frame}[fragile]{文献调研}{Literature Research}
-    \textbf{Formalization} (Riccardo, 2024):\\
+    \textbf{正规素数情况的形式化}（Riccardo, 2024）:\\
     \begin{figure}
  		\centering
  		\includegraphics[width=0.8\linewidth]{screenshot.png}
@@ -130,7 +130,7 @@
                 \item[1-2月] 
                 代数数论和交换代数（Ian\&Tall，Ash，Milne，Matsumura）\\
                 \vspace{3pt}
-                理解掌握Kummer关于正规素数情况的证明
+                理解掌握库默尔关于正规素数情况的证明
                 \vspace{10pt}
                 \item[2-3月]
                 通过Hector和Andrew的工作学习费马大定理与ABC猜想间的关联\\
