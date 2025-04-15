@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{amsmath}   % 提供 \text 命令
+\usepackage{tikz-cd}   % 提供交换图环境
+\usepackage{quiver}
+\usepackage{color}
+\usepackage{xcolor} % 提供颜色支持
+
+\definecolor{mainColor}{HTML}{032040}
+\pagecolor{mainColor}
+
+\begin{document}
+
+\color{white}
+\begin{tikzcd}
+	L && {\mathfrak{O}_L} \\
+	\\
+	K && A
+	\arrow["{\text{field of fractions}}", color={rgb,255:red,214;green,214;blue,92}, from=1-3, to=1-1]
+	\arrow["\begin{array}{c} \begin{array}{c} \text{finite}\\ \text{separable} \end{array} \end{array}", from=3-1, to=1-1]
+	\arrow["{{\text{integral closure}}}", from=3-3, to=1-3]
+	\arrow["{{\text{field of fractions}}}", from=3-3, to=3-1]
+\end{tikzcd}
+
+\end{document}

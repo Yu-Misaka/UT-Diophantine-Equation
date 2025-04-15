@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{amsmath}   % 提供 \text 命令
+\usepackage{tikz-cd}   % 提供交换图环境
+\usepackage{quiver}
+\usepackage{color}
+\usepackage{xcolor} % 提供颜色支持
+
+\definecolor{mainColor}{HTML}{032040}
+\pagecolor{mainColor}
+
+\begin{document}
+
+\color{white}
+\begin{tikzcd}[column sep=small]
+	& \begin{array}{c} \mathcal{F} \\ \text{fractional ideals} \end{array} \\
+	& {} & \begin{array}{c} h = |\mathcal{F} / \mathcal{P}| \\ \text{class number} \end{array} \\
+	{\mathfrak{O}_L} & \begin{array}{c} \mathcal{P} \\ \text{principal ideals} \end{array}
+	\arrow[shorten <=1ex, squiggly, from=2-2, to=2-3]
+	\arrow[from=3-1, to=1-2]
+	\arrow["\begin{array}{c} \mathcal{F}/ \mathcal{P} \\ \text{class group} \end{array}"{marking, allow upside down}, from=3-2, to=1-2]
+\end{tikzcd}
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{amsmath}   % 提供 \text 命令
+\usepackage{tikz-cd}   % 提供交换图环境
+\usepackage{quiver}
+\usepackage{color}
+\usepackage{xcolor} % 提供颜色支持
+
+\definecolor{mainColor}{HTML}{032040}
+\pagecolor{mainColor}
+
+\begin{document}
+
+\color{white}
+\begin{tikzcd}[column sep=small]
+	{q\text{ coprime to }h, \ \mathfrak{a}^q \text{ principal,}\text{ then }\mathfrak{a}\text{ principal}} \\
+	{\text{units of }\mathbb{Z}[\zeta] \text{ (unit theorem)}} & \begin{array}{c} \text{Kummer's Theorem }\\(n\text{ divides none of }x, y, z) \end{array} \\
+	\begin{array}{c} \text{if a unit in }\mathbb{Q}(\zeta)\text{ is congruent modulo }p \\ \text{to a rational integer, then it is a }p \text{th}\\ \text{power of another unit in }\mathbb{Q}(\zeta) \end{array} & \begin{array}{c} \text{Kummer's Theorem }\\(n\text{ divides only 1 of }x, y, z) \end{array} & {\text{Kummer's Theorem}} \\
+	{...}
+	\arrow[curve={height=12pt}, from=1-1, to=2-2]
+	\arrow[curve={height=24pt}, from=1-1, to=3-2]
+	\arrow[from=2-1, to=2-2]
+	\arrow[curve={height=15pt}, from=2-1, to=3-2]
+	\arrow[curve={height=12pt}, from=2-2, to=3-3]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=4-1, to=3-1]
+\end{tikzcd}
+
+\end{document}
